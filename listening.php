@@ -24,10 +24,10 @@ if (isset($_GET['q'])) {
         $result[$i] = $query['hits']['hits'][$i]['_source'];
         $i++;
     }
-    foreach ($result as $key => $value) {
+    /*foreach ($result as $key => $value) {
         echo $value['lastname'] . "<br>";
-    }
-    /*echo '<pre>', print_r($result), '</pre>';*/
+    }*/
+    echo '<pre>', print_r($result), '</pre>';
     die();
 }
 
