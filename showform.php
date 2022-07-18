@@ -2,6 +2,7 @@
 require 'connectiondb.php';
 require 'connection_es.php';
 require 'function-sf.php';
+require 'function.php';
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -101,6 +102,9 @@ require 'function-sf.php';
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="./Font-Awesome-master/css/all.min.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <script src="./js/bootstrap.min.js"></script>
   <title>totallysports!</title>
   <link rel="icone" type="image" href="logo_Fini-removebg-preview.png">
 </head>
@@ -113,6 +117,25 @@ require 'function-sf.php';
       </a>
     </div>
   </div>
+  <!-- Displaying Flash Data if exist -->
+  <?php if (isset($_SESSION['_flashdata'])) : ?>
+    <!-- Looping All Flash messages -->
+    <?php foreach ($_SESSION['_flashdata'] as $key => $val) : ?>
+      <div class="my-2 px-3 py2 alert alert-<?= $key ?>">
+        <div class="d-flex align-items-center">
+          <div class="col-11">
+            <!-- Displaying the Flash Message -->
+            <p><?= get_flashdata($key) ?></p>
+          </div>
+          <div class="col-1 text-end">
+            <button class="btn-close" type="button" onclick="this.closest('.alert').remove()"></button>
+          </div>
+        </div>
+      </div>
+    <?php endforeach; ?>
+    <!-- Looping All Flash messages -->
+  <?php endif; ?>
+  <!-- Displaying Flash Data if exist -->
   <div id="frm">
 
     <h1 id="titre" ; style="font: size 600px; text-align:center;">PHP test formulaire</h1>
@@ -178,7 +201,7 @@ require 'function-sf.php';
   </div>
   <footer>
     <p>Author: Hameda Benchekroun Yahia<br>
-    <a href="mailto:yahya.hbenchekroun@gmail.com">support@gmail.com</a>
+      <a href="mailto:yahya.hbenchekroun@gmail.com">support@gmail.com</a>
     </p>
   </footer>
 </body>
