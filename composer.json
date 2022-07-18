@@ -1,5 +1,6 @@
 {
 	"require": {
-		"elasticsearch/elasticsearch": "^7.5"
+		"elasticsearch/elasticsearch": "^7.5",
+		"mercuryseries/flashy-bundle": "^5.1"
 	}
 }
